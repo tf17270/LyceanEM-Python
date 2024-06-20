@@ -94,12 +94,11 @@ def mesh_transform(mesh, transform_matrix, rotate_only):
             return_mesh.points[i] = np.dot(transform_matrix, np.append(mesh.points[i], 0))[:3]
             return_mesh.point_data['Normals'][i] = np.dot(transform_matrix, np.append(mesh.point_data['Normals'][i], 0))[:3]
 
+
     else:
         for i in range(mesh.points.shape[0]):
             return_mesh.points[i] = np.dot(transform_matrix, np.append(mesh.points[i], 1))[:3]
             return_mesh.point_data['Normals'][i]= np.dot(transform_matrix, np.append(mesh.point_data['Normals'][i], 0))[:3]
-    
-
     return return_mesh
 
 def compute_normals(mesh):
@@ -190,7 +189,23 @@ def mesh_conversion(conversion_object):
         triangles = np.empty((0), dtype=base_types.triangle_t)
 
     return triangles
-
+def mesh_conversion_to_meshio(conversion_object):
+    if isinstance(conversion_object, base_classes.structures):
+        meshio_mesh = conversion_object.export_combined_meshio()
+    elif isinstance(conversion_object, base_classes.antenna_structures):
+        exported_structure = base_classes.structures(
+            solids=conversion_object.export_all_structures()
+        )
+        meshio_mesh = exported_structure.export_combined_meshio()
+    elif isinstance(conversion_object, meshio.Mesh):
+        meshio_mesh = conversion_object
+    elif isinstance(conversion_object, list):
+        assert False
+    else:
+        print("no structures")
+        print(type(conversion_object))
+        meshio_mesh = None
+    return meshio_mesh
 
 def axes_from_normal(boresight_vector, boresight_along="x"):
     """
