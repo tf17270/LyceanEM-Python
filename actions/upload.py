@@ -35,6 +35,7 @@ if len(pkg_lycean) == 0:
 packages = pkg_lycean
 
 
+packages = " ".join(packages)
 
 print(f"Uploading packages:")
 
