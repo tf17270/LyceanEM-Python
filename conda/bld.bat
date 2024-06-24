@@ -1,3 +1,4 @@
 echo "Start windows build"
-python  -m pip install . -vv
+cmake ../
+cmake --build .
 if errorlevel 1 exit 1
