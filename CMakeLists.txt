@@ -4,7 +4,7 @@ message(STATUS "Python_version: ${Python_VERSION}")
 find_package(pybind11 CONFIG REQUIRED)
 project(test LANGUAGES CXX CUDA)
 find_package( PkgConfig )
-set (CMAKE_GENERATOR "Ninja" CACHE INTERNAL "" FORCE)
+
 # build release with debug info
 
 
