@@ -4,9 +4,9 @@ name: Build
 on:
   workflow_dispatch:
   push:
-    branches: [ devel ]
+    branches: [ master ]
   pull_request:
-    branches: [ devel ]
+    branches: [ master ]
 
 jobs:
   build:
