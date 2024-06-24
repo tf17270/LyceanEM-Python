@@ -15,8 +15,7 @@ requirements:
     - python
     - pip
     - conda-forge::pybind11
-    - anaconda::cudatoolkit
-    - conda-forge::cuda-nvcc-impl
+    - nvidia::cuda
     - conda-forge::cmake
     - conda-forge::scikit-build
     - conda-forge::clang
