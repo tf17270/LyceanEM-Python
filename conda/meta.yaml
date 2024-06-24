@@ -19,7 +19,7 @@ requirements:
     - conda-forge::cmake
     - conda-forge::ninja
     - conda-forge::scikit-build
-    - conda-forge::cxx-compiler
+    - conda-forge::clang
 
   run:
     - python
