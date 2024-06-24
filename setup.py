@@ -3,7 +3,12 @@ from setuptools import find_packages  # This line replaces 'from setuptools impo
 import os
 import sys
 
+from skbuild.platform_specifics import windows
 
+# Monkey patch msvc compiler environment, so scikit-build does not overwrite
+# it. Make sure to set desired environment using:
+# > vcvars64.bat -vcvars_ver=<vcvars_ver>
+windows._get_msvc_compiler_env = lambda version, toolset: windows.CachedEnv()
 # move to the directory of the setup.py file
 
 # Read metadata from setup.cfg
