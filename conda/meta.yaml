@@ -18,7 +18,7 @@ requirements:
     - nvidia::cuda
     - conda-forge::cmake
     - conda-forge::scikit-build
-    - conda-forge::clang
+    - {{compiler('cxx')}}
 
   run:
     - python
