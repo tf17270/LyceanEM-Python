@@ -3,7 +3,7 @@ from setuptools import find_packages  # This line replaces 'from setuptools impo
 import os
 import sys
 
-from skbuild.platform_specifics import windows
+
 
 # Monkey patch msvc compiler environment, so scikit-build does not overwrite
 # it. Make sure to set desired environment using:
@@ -37,7 +37,4 @@ setup(
     license_file=metadata.get("license_file"),
     packages = find_packages(),
     include_package_data=True,
-    cmake_install_dir=
-        "lyceanem/",
-    
 )
