@@ -52,7 +52,7 @@ jobs:
         if: github.event_name == 'pull_request'
 #
       - name: Setup Conda
-        run: conda install -y -c conda-forge boa anaconda-client ninja cxx-compiler nvidia::cuda
+        run: conda install -y -c conda-forge boa anaconda-client
 #
 
 #
