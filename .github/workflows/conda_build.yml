@@ -55,6 +55,7 @@ jobs:
         run: conda install -y -c conda-forge boa anaconda-client ninja cxx-compiler nvidia::cuda
       - name: cmake direct
         run: cmake -G ninja ${{ github.workspace }}/LyceanEM-Python/
+      - name: cmakebuild
         run: cmake --build ${{ github.workspace }}/LyceanEM-Python/
 #
 
