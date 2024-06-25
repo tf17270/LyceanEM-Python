@@ -28,11 +28,6 @@ jobs:
               os: "ubuntu-latest",
               shell: "bash -l {0}"
             }
-          - {
-              name: "macos",
-              os: "macos-latest",
-              shell: "bash -l {0}"
-            }
     environment:
       name: build_env
     defaults:
@@ -57,7 +52,10 @@ jobs:
         if: github.event_name == 'pull_request'
 #
       - name: Setup Conda
-        run: conda install -y -c conda-forge boa anaconda-client ninja cxx-compiler
+        run: conda install -y -c conda-forge boa anaconda-client ninja cxx-compiler nvidia::cuda
+      - name: cmake direct
+        run: cmake -G ninja ${{ github.workspace }}/LyceanEM-Python/
+        run: cmake --build ${{ github.workspace }}/LyceanEM-Python/
 #
 
 #
