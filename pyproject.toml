@@ -23,6 +23,9 @@ classifiers = [
 build-dir = "build"
 [tool.setuptools_scm]
 write_to = "lyceanem/_version.py"
+[tool.cmake]
+generator = "Visual Studio 17 2022"
+toolset = "v143"  
 
 
 
